@@ -34,3 +34,7 @@ __pycache__/
 .venv/
 venv/
 .env
+
+# --- Local tooling state ----------------------------------------------------
+# Claude Code project config/worktrees; local to this machine, not project data
+.claude/
