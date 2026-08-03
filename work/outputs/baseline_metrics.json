@@ -1,0 +1,31 @@
+{
+  "rule": "underclicking_for_position",
+  "frozen_score": "missed_clicks / expected_clicks (share of expectation)",
+  "deprecated_score": "missed_clicks (absolute count) -- ranked below base rate at every K",
+  "expected_clicks_floor": 5.0,
+  "in_scope_tiers": [
+    "page_1",
+    "striking",
+    "page_3_5",
+    "top_3"
+  ],
+  "n_ranked": 28795,
+  "n_fired": 7176,
+  "base_rate": 0.5645,
+  "flag_lift": {
+    "fired_declining_rate": 0.6329,
+    "no_action_declining_rate": 0.5035
+  },
+  "precision_at_k_frozen": {
+    "10": 0.8,
+    "50": 0.7,
+    "100": 0.63,
+    "500": 0.57
+  },
+  "precision_at_k_deprecated": {
+    "10": 0.4,
+    "50": 0.5,
+    "100": 0.49,
+    "500": 0.512
+  }
+}
