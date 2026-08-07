@@ -237,6 +237,20 @@ The model ranks existing content for refresh review. It does not use titles, URL
 - Split strategy used for validation: {model_results["split_strategy"]}
 - Target: `{model_results["target"]}`
 
+### Which dataset these numbers describe
+
+Every metric in this report scores the bundled starter CSV, using its supplied
+label `is_declining_label`. The leakage audit in
+`work/notebooks/w03_feature_leakage_check.ipynb` uses a different source: the
+FlyRank warehouse, 176,737 rows, with the label computed directly as
+`clicks_apr < clicks_mar`. Base rate there is 0.255, or 0.655 once the 61.1%
+of rows with `clicks_mar == 0` are removed — those rows cannot decline, because
+April clicks cannot fall below zero.
+
+Different dataset, different label, different population. Metrics from the two
+are not comparable, and the numbers below should not be read as the accuracy I
+would quote for a live system.
+
 ## Model Comparison
 
 Best model: `{model_results["best_model"]["name"]}` selected by `{model_results["best_model"]["selection_metric"]}`.
