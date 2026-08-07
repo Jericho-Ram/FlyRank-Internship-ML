@@ -289,6 +289,8 @@ Best model: `{model_results["best_model"]["name"]}` selected by `{model_results[
 
 Use the ranked queue as a reviewer aid, not as an automatic publishing decision.
 The safest first production use is to inspect high-confidence rows, verify the page manually, and compare the recommendation against editorial context.
+
+Known failure modes, with fixes and the conditions under which this score should not be trusted, are maintained by hand in `outputs/known_failure_modes.md`.
 """
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(report)
