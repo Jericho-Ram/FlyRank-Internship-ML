@@ -85,3 +85,20 @@ ROC AUC held at `0.750` against a committed `0.747` across the same runs where
 Precision@50 moved `0.680` to `0.740`.
 
 **Fix.** Quote ROC AUC alongside Precision@50, never Precision@50 alone.
+
+## 7. On the valid population, no model discriminates well
+
+After excluding zero-impression rows (entry 1), the best ROC AUC across three
+models is `0.583` (logistic regression). Decision tree returns `0.505`,
+indistinguishable from random. Random forest reaches `0.566` with recall of
+`0.992`, meaning it labels nearly everything declining; against a base rate of
+`0.611` that yields an F1 of `0.768` from a model that is barely deciding. The
+hand rule scores `0.380`, below random, so it ranks worse than chance rather
+than serving as a floor to beat.
+
+**Fix.** None applied. This is a finding, not a defect: the features in the
+starter CSV may not carry enough signal for the task once the arithmetic
+artifact is removed. The next step is a feature question, not a model question.
+
+**Don't trust** any framing of this work as a working ranker. It is a
+correctly-evaluated negative result.

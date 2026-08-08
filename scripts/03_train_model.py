@@ -243,9 +243,9 @@ def main() -> None:
     best_model_name = sorted(
         model_results,
         key=lambda name: (
-            model_results[name]["precision_at_50"],
-            model_results[name]["average_precision"],
             model_results[name]["roc_auc"],
+            model_results[name]["average_precision"],
+            model_results[name]["precision_at_50"],
         ),
         reverse=True,
     )[0]
@@ -283,7 +283,7 @@ def main() -> None:
         "baseline": baseline_metrics,
         "best_model": {
             "name": best_model_name,
-            "selection_metric": "precision_at_50",
+            "selection_metric": "roc_auc",
             "feature_importance_top": top_feature_importance(best_full_model, feature_columns),
         },
         "prediction_output": display_path(prediction_path),

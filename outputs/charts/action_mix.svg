@@ -3,17 +3,17 @@
 <text x="480.0" y="34" text-anchor="middle" font-family="Arial" font-size="24" fill="#16232a">Suggested action mix</text>
 <text x="178" y="116.8" text-anchor="end" font-family="Arial" font-size="13" fill="#27343b">monitor</text>
 <rect x="190" y="70.0" width="730.0" height="72.0" fill="#426B69" rx="4"/>
-<text x="928.0" y="116.8" font-family="Arial" font-size="13" fill="#27343b">1.31e+04</text>
+<text x="928.0" y="116.8" font-family="Arial" font-size="13" fill="#27343b">9.4e+03</text>
 <text x="178" y="198.8" text-anchor="end" font-family="Arial" font-size="13" fill="#27343b">refresh</text>
-<rect x="190" y="152.0" width="458.4" height="72.0" fill="#426B69" rx="4"/>
-<text x="656.4" y="198.8" font-family="Arial" font-size="13" fill="#27343b">8.21e+03</text>
+<rect x="190" y="152.0" width="674.8" height="72.0" fill="#426B69" rx="4"/>
+<text x="872.8" y="198.8" font-family="Arial" font-size="13" fill="#27343b">8.69e+03</text>
 <text x="178" y="280.8" text-anchor="end" font-family="Arial" font-size="13" fill="#27343b">refresh_and_review_ctr</text>
-<rect x="190" y="234.0" width="371.7" height="72.0" fill="#426B69" rx="4"/>
-<text x="569.7" y="280.8" font-family="Arial" font-size="13" fill="#27343b">6.66e+03</text>
+<rect x="190" y="234.0" width="507.6" height="72.0" fill="#426B69" rx="4"/>
+<text x="705.6" y="280.8" font-family="Arial" font-size="13" fill="#27343b">6.54e+03</text>
 <text x="178" y="362.8" text-anchor="end" font-family="Arial" font-size="13" fill="#27343b">refresh_and_review_engagement</text>
-<rect x="190" y="316.0" width="111.0" height="72.0" fill="#426B69" rx="4"/>
-<text x="309.0" y="362.8" font-family="Arial" font-size="13" fill="#27343b">1.99e+03</text>
+<rect x="190" y="316.0" width="147.4" height="72.0" fill="#426B69" rx="4"/>
+<text x="345.4" y="362.8" font-family="Arial" font-size="13" fill="#27343b">1.9e+03</text>
 <text x="178" y="444.8" text-anchor="end" font-family="Arial" font-size="13" fill="#27343b">expand_and_refresh</text>
-<rect x="190" y="398.0" width="4.6" height="72.0" fill="#426B69" rx="4"/>
-<text x="202.6" y="444.8" font-family="Arial" font-size="13" fill="#27343b">82</text>
+<rect x="190" y="398.0" width="6.2" height="72.0" fill="#426B69" rx="4"/>
+<text x="204.2" y="444.8" font-family="Arial" font-size="13" fill="#27343b">80</text>
 </svg>

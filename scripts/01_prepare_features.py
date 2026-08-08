@@ -104,7 +104,7 @@ def main() -> None:
     for column in numeric_fill_zero:
         df[column] = df[column].replace([np.inf, -np.inf], np.nan).fillna(0)
 
-    df = df[(df["impressions_90d"] > 0) & (df["content_age_days"] >= 90)].copy()
+    df = df[(df["impressions_90d"] > 0) & (df["content_age_days"] >= 90) & (df["impressions_prev_30d"] > 0)].copy()
     df = df.drop_duplicates(subset=["content_id"]).reset_index(drop=True)
 
     df["is_declining_label"] = df["trend_direction"].str.lower().eq("down").astype(int)
