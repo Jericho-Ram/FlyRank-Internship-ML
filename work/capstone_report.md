@@ -48,7 +48,7 @@ of `0.611`. The hand rule is not a useful comparison. On the same population it 
 it demonstrates nothing. A model can beat it and still be worthless. I am not presenting the gap as evidence.
 
 The feature importances say something more useful than the score does. `log_impressions_90d` and `log_clicks_90d` are the 
-heaviest by clear margin. The model is leaning on traffic volume: it ranks by size, not by movement. A big page and a 
+heaviest by a clear margin. The model is leaning on traffic volume: it ranks by size, not by movement. A big page and a 
 shrinking page look the same to it if their ninety-day totals match.
 
 Failure modes are documented in `outputs/known_failure_modes.md`.
