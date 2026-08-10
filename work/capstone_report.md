@@ -37,22 +37,19 @@ split**. What the errors look like — a short error analysis beats a big metric
 
 ## 6. Interpretation
 
-# 6. Interpretation
-
 The first version of this model looked strong, and the reason it looked strong was an artifact. Pages with zero 
 impressions cannot decline. They have no traffic to lose, so their label is fixed before any feature is read. The model 
 had learned to find them. Once those rows were excluded, most of the apparent signal went with them — the model had been 
 separating pages that could not decline from pages that could, not ranking decline risk among pages actually at risk.
 
 On the valid population, the honest numbers are ROC AUC `0.583` and Precision@50 `0.740`. Quoted together, they describe a 
-model that ranks slightly better than chance and does not concentrate much of the true decline into the top `50` rows.
+model that ranks slightly better than chance and concentrates decline into the top `50` only modestly above the base rate 
+of `0.611`. The hand rule is not a useful comparison. On the same population it scores below random, which means clearing 
+it demonstrates nothing. A model can beat it and still be worthless. I am not presenting the gap as evidence.
 
-The hand rule is not a useful comparison. On the same population it scores below random, which means clearing it 
-demonstrates nothing. A model can beat it and still be worthless. I am not presenting the gap as evidence.
-
-The feature importances say something more useful than the score does. `log_impressions_90d` and `log_clicks_90d` carry 
-most of the weight. In plain words: The model is leaning on traffic volume: it ranks by size, not by movement. A big page 
-and a shrinking page look the same to it if their ninety-day totals match.
+The feature importances say something more useful than the score does. `log_impressions_90d` and `log_clicks_90d` are the 
+heaviest by clear margin. The model is leaning on traffic volume: it ranks by size, not by movement. A big page and a 
+shrinking page look the same to it if their ninety-day totals match.
 
 Failure modes are documented in `outputs/known_failure_modes.md`.
 
