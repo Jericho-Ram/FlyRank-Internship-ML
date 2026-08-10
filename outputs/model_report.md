@@ -1,8 +1,9 @@
 # FlyRank Refresh Opportunity Model Report
 
 > **Run provenance.** Regenerated 2026-08-09 from a clean clone.
-> Scored population excludes rows with `impressions_prev_30d == 0`
-> (26,612 of 30,000), since pages with no prior impressions cannot decline.
+> > Scored population excludes the `3,388` of `30,000` rows with
+> `impressions_prev_30d == 0`, leaving `26,612` rows scored, since
+> pages with no prior impressions cannot decline.
 > Earlier versions published a Precision@50 of 0.680 over all 30,000 rows;
 > that figure is withdrawn. See `outputs/known_failure_modes.md`, entries 1
 > and 4. Models are selected by ROC AUC, not Precision@50 (entry 6).
