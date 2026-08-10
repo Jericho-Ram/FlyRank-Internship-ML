@@ -103,11 +103,11 @@ That runs the whole pipeline on the bundled sample and writes results to `output
 05_build_pdf_report.py   a shareable PDF summary
 ```
 
-On the held-out split the model reaches ROC AUC 0.583 with Precision@50 0.740. Quote them together; neither carries the 
-other. Scoring covers 26,612 of 30,000 rows — the rest are excluded because impressions_prev_30d == 0 makes decline 
-arithmetically impossible — so both figures describe that subset. On that population this is a negative result: 0.583 is 
-weak discrimination, and the hand rule it is measured against scores 0.380, below random, so beating it establishes 
-nothing. Read outputs/known_failure_modes.md before reusing either number.
+On the held-out split the model reaches ROC AUC `0.583` with Precision@50 `0.740`. Quote them together; neither carries
+the other. Scoring covers `26,612` of `30,000` rows — the rest are excluded because `impressions_prev_30d == 0` makes 
+decline arithmetically impossible — so both figures describe that subset. On that population this is a negative result: 
+`0.583` is weak discrimination, and the hand rule it is measured against scores `0.380`, below random, so beating it 
+establishes nothing. Read `outputs/known_failure_modes.md` before reusing either number.
 
 **Teaching point:** the model is the capstone, but the *workflow* is the lesson —
 `problem framing → data cleaning → baseline → first model → evaluation → explainable recommendation`.
