@@ -210,6 +210,7 @@
 
   <h3>The leakage audit</h3>
   <p>Five checks, run against the shipped (permissive) feature set:</p>
+  <div class="table-scroll">
   <table>
     <thead><tr><th>Test</th><th>What it checks</th><th>Result</th></tr></thead>
     <tbody>
@@ -220,6 +221,7 @@
       <tr><td>E — window-overlap columns</td><td>Value carried by columns sharing the label's time window</td><td>0.645 permissive vs. 0.611 strict (+0.034)</td></tr>
     </tbody>
   </table>
+  </div>
   <div class="callout">
     <p>The number this page stands behind is <strong>0.645 mean ROC AUC</strong>, on a
     client-grouped split, on the 26,604 rows where decline is arithmetically possible. Every
@@ -300,6 +302,7 @@
     the tier this model adds on top of the hand rule.</figcaption>
   </figure>
 
+  <div class="table-scroll">
   <table>
     <thead><tr><th>Tier</th><th>Pages</th><th>Meaning</th></tr></thead>
     <tbody>
@@ -309,6 +312,7 @@
       <tr><td><span class="tier-badge">4</span>Monitor</td><td>8,202</td><td>Neither signal flags a problem right now.</td></tr>
     </tbody>
   </table>
+  </div>
 
   <div class="callout warn">
     <p><strong>Read this as decision-support, not confirmation.</strong> The 70.2% figure is
