@@ -23,6 +23,7 @@ copy its whole content, and paste it into your chat before asking for help. That
 | Train and compare the model (ML-08) | `training-honest-models/SKILL.md` | `flyrank/flyrank-data/SKILL.md` |
 | Hunt leakage; validate honestly (ML-05, ML-09) | `hunting-leakage-and-validating/SKILL.md` | `flyrank/flyrank-data/SKILL.md` |
 | Write claims that hold (ML-09, ML-10, the paper) | `writing-honest-claims/SKILL.md` | — |
+| Check a published number against its source (any live page, report, or portfolio claim) | `auditing-published-claims/SKILL.md` | — |
 | Write the research paper (ML-11, W7) | `writing-research-papers/SKILL.md` | — |
 | Deploy the paper as a page (ML-11) | `deploying-static-pages/SKILL.md` | — |
 | Understand FlyRank + the problem (background) | `flyrank/flyrank-context/SKILL.md` | — |
