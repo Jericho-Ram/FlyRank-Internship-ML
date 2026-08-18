@@ -42,8 +42,10 @@ impressions cannot decline. They have no traffic to lose, so their label is fixe
 had learned to find them. Once those rows were excluded, most of the apparent signal went with them — the model had been 
 separating pages that could not decline from pages that could, not ranking decline risk among pages actually at risk.
 
-On the valid population, the honest numbers are ROC AUC `0.583` and Precision@50 `0.740`. Quoted together, they describe a 
-model that ranks slightly better than chance and concentrates decline into the top `50` only modestly above the base rate 
+On the valid population, logistic regression scores ROC AUC `0.583` and Precision@50 `0.740` — the model the script
+selects by ROC AUC once the zero-impression rows are gone. Unfiltered, that selection goes to random forest instead.
+Quoted together, they describe a model that ranks slightly better than chance and concentrates decline into the top `50` 
+only modestly above the base rate 
 of `0.611`. The hand rule is not a useful comparison. On the same population it scores below random, which means clearing 
 it demonstrates nothing. A model can beat it and still be worthless. I am not presenting the gap as evidence.
 
