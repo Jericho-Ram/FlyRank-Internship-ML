@@ -1,0 +1,85 @@
+{
+  "population_rows": 26604,
+  "base_rate_declining": 0.611,
+  "n_clients": 31,
+  "oof_auc_permissive": 0.6618,
+  "oof_auc_strict": 0.6278,
+  "auc_note": "pooled out-of-fold across GroupKFold(5), not the per-fold mean quoted in w06",
+  "action_tier_counts": {
+    "1_refresh_now": 5396,
+    "2_investigate_rule_silent": 11276,
+    "3_ctr_gap_only": 1730,
+    "4_monitor": 8202
+  },
+  "archetypes": {
+    "method": "KMeans k=5 on 9 scaled columns, log1p on heavy-tailed; metric clustering, NOT semantic",
+    "excluded_feature": {
+      "column": "days_since_last_update",
+      "reason": "batch write timestamps: 57 distinct values, top 5 cover 87.8% of rows"
+    },
+    "silhouette_by_k": {
+      "3": 0.175,
+      "4": 0.1868,
+      "5": 0.1788,
+      "6": 0.1937
+    },
+    "profiles": {
+      "visible_performers": {
+        "n": 7740,
+        "share_of_pages": 0.2909,
+        "declining_rate": 0.5465,
+        "share_of_impressions": 0.8746,
+        "share_of_missed_clicks": 0.7922,
+        "action": "protect"
+      },
+      "deep_low_demand": {
+        "n": 8358,
+        "share_of_pages": 0.3142,
+        "declining_rate": 0.5369,
+        "share_of_impressions": 0.0618,
+        "share_of_missed_clicks": 0.1006,
+        "action": "merge_or_prune"
+      },
+      "young_unproven": {
+        "n": 7877,
+        "share_of_pages": 0.2961,
+        "declining_rate": 0.7405,
+        "share_of_impressions": 0.0583,
+        "share_of_missed_clicks": 0.0972,
+        "action": "wait"
+      },
+      "low_visibility_midage": {
+        "n": 2489,
+        "share_of_pages": 0.0936,
+        "declining_rate": 0.6625,
+        "share_of_impressions": 0.0052,
+        "share_of_missed_clicks": 0.0101,
+        "action": "investigate"
+      },
+      "micro_volume": {
+        "n": 140,
+        "share_of_pages": 0.0053,
+        "declining_rate": 0.3929,
+        "share_of_impressions": 0.0,
+        "share_of_missed_clicks": 0.0,
+        "action": "exclude"
+      }
+    }
+  },
+  "age_and_staleness": {
+    "declining_rate_by_age_tier": {
+      "31-90": 0.7121,
+      "91-180": 0.7066,
+      "181-365": 0.6085,
+      "365+": 0.4439
+    },
+    "point_biserial_r": {
+      "content_age_days": -0.2026,
+      "days_since_last_update": 0.0231,
+      "avg_position": -0.1014,
+      "ctr": -0.0516
+    },
+    "staleness_column_unusable": "days_since_last_update is batch-stamped; no staleness claim is drawn from it",
+    "survivorship_caveat": "population requires impressions_prev_30d > 0; age effect cannot be separated from survivorship"
+  }
+}
