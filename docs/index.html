@@ -146,7 +146,8 @@
   <h2 class="abstract-h">Abstract</h2>
   <div class="abstract">
     <p><strong>Question.</strong> Across a content team's queue of already-published pages, which
-    ones are declining in search performance right now, and which of those are worth a refresh?</p>
+    ones are declining in search performance right now, and which of those are worth a refresh? The
+    two ways of being wrong do not cost the same, and that asymmetry drives everything below.</p>
     <p><strong>Data.</strong> An anonymized FlyRank content-performance extract, 30,000 rows /
     32 clients, filtered to 26,604 scorable pages (31 clients) where decline is arithmetically
     possible and a position is on record.</p>
@@ -165,10 +166,13 @@
 
   <h2>Introduction</h2>
   <p>A content team with a few thousand published pages cannot review all of them by hand every
-  sprint. Someone has to decide what gets opened first, and a wrong call costs something in
-  either direction: flag a stable page and an editor spends the sprint on a page that never
-  needed it; miss a genuinely declining page and it keeps losing clicks unreviewed for another
-  month.</p>
+  sprint. Someone has to decide what gets opened first, and the two ways of being wrong do not
+  cost the same. A page flagged wrongly wastes an editor's time. The mistake nobody notices only
+  surfaces when the client asks — and that one is fatal.</p>
+
+  <p>The model can fake a good reading. Given a random split it learns the client roster instead
+  of the signal, and the score looks strong right up until it meets an account it has never
+  seen.</p>
   <p>This project asked whether a model trained on the FlyRank content extract can rank that
   queue better than the obvious rule an editor would write without one — and, just as
   importantly, whether it can say so honestly: with the validation design that actually earns
