@@ -5,27 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Which Pages Should You Refresh First? — FlyRank ML Internship Capstone</title>
 <meta name="description" content="A client-grouped, leakage-audited model for ranking declining content against a hand-written baseline rule — with the honest limitations attached.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;600&amp;display=swap">
 <style>
   :root {
-    --bg: #fcfcfb;
+    --bg: #FAF9F6;
     --surface: #ffffff;
-    --text-primary: #0b0b0b;
-    --text-secondary: #3d3c39;
-    --text-muted: #6b6a65;
-    --border: #e4e3de;
-    --accent: #2a78d6;
-    --accent-2: #eb6834;
-    --code-bg: #f2f1ec;
-    --callout-bg: #f5f6f2;
+    --text-primary: #16181C;
+    --text-secondary: #2C2F35;
+    --text-muted: #6E7178;
+    --border: #E6E4DE;
+    --accent: #2B3D18;
+    --accent-2: #B4531A;
+    --code-bg: #F1EFE9;
+    --callout-bg: #F3F2EC;
     --max-width: 760px;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.62;
+    font-family: var(--sans);
+    line-height: 1.55;
   }
   main {
     max-width: var(--max-width);
@@ -44,18 +47,19 @@
     color: var(--text-muted);
     font-weight: 600;
   }
+  h1, h2, h3 { font-weight: 600; }
   h1 {
     font-size: clamp(1.7rem, 4vw, 2.35rem);
     line-height: 1.2;
     margin: 0.5rem 0 0.75rem;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
   h2 {
     font-size: 1.35rem;
     margin-top: 3rem;
     padding-top: 0.25rem;
     border-top: 1px solid var(--border);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
   h3 {
     font-size: 1.05rem;
@@ -71,7 +75,7 @@
     padding: 0.12em 0.4em;
     border-radius: 4px;
     font-size: 0.88em;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-family: var(--mono);
   }
   .abstract {
     background: var(--surface);
@@ -82,6 +86,8 @@
   }
   .abstract p { margin: 0.7rem 0; }
   .abstract p:first-child { margin-top: 0; }
+  h2.abstract-h { margin-top: 2rem; border-top: none; padding-top: 0; }
+  .nums td:nth-child(n+3) { font-family: var(--mono); font-size: 0.88em; }
   .callout {
     background: var(--callout-bg);
     border-left: 3px solid var(--accent);
@@ -137,6 +143,7 @@
 
 <main>
 
+  <h2 class="abstract-h">Abstract</h2>
   <div class="abstract">
     <p><strong>Question.</strong> Across a content team's queue of already-published pages, which
     ones are declining in search performance right now, and which of those are worth a refresh?</p>
@@ -232,7 +239,7 @@
   <h2>Results</h2>
   <p>Same 5 client-grouped folds for every row in the table below:</p>
   <div class="table-scroll">
-  <table>
+  <table class="nums">
     <caption>Mean across 5 client-grouped folds. P@K = precision at the top K ranked rows.</caption>
     <thead><tr><th>Model</th><th>Features</th><th>ROC AUC</th><th>P@10</th><th>P@50</th><th>P@100</th><th>P@500</th></tr></thead>
     <tbody>
