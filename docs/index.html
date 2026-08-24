@@ -300,6 +300,42 @@
     page averages or compares its numbers directly against the extract-based results above.</li>
   </ul>
 
+  <h2 id="reconciliation">Reconciling this page against earlier published numbers</h2>
+  <p>Two populations from the same <code>30,000</code>-row extract have been published from this
+  repo, under two filter orders. Both are correct. Neither previously stated which pipeline
+  produced it, so the figures read as if they disagree.</p>
+
+  <div class="table-scroll">
+  <table class="nums">
+    <caption>Same extract, same base rate, two pipelines. Row counts verified against
+    <code>data/raw/content_refresh_anonymized.csv</code>.</caption>
+    <thead><tr><th></th><th>Failure-modes table</th><th>This page</th></tr></thead>
+    <tbody>
+      <tr><td>Scored population</td><td>26,612</td><td>26,604</td></tr>
+      <tr><td>Filters</td><td>zero prior impressions</td><td>no recorded position, then zero prior impressions</td></tr>
+      <tr><td>Validation</td><td>one runtime, single split</td><td>mean of 5 client-grouped folds</td></tr>
+      <tr><td>Feature set</td><td>not named</td><td>permissive</td></tr>
+      <tr><td>RF ROC AUC</td><td>0.565</td><td>0.645</td></tr>
+      <tr><td>RF Precision@50</td><td>0.600</td><td>0.844</td></tr>
+      <tr><td>Base rate</td><td>0.611</td><td>0.611</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>The row counts differ by 8 because the two filters overlap. <code>1,205</code> rows have no
+  recorded position (<code>avg_position</code> is stored as <code>0</code>, not as a missing
+  value) and <code>3,388</code> have zero prior impressions; <code>1,197</code> rows are in both,
+  so <code>3,396</code> rows fall to one filter or the other. Applying only the impression filter
+  leaves <code>26,612</code>; applying both leaves <code>26,604</code>. The
+  <code>2,191</code> figure quoted in the Data section above is the incremental removal after the
+  position filter has already taken <code>1,197</code> of them.</p>
+
+  <div class="callout warn">
+    <p>The <code>0.600</code> comes from unnamed features on a single runtime. The
+    <code>0.844</code> comes from five client-grouped folds on the permissive set. The model did
+    not get better between the two &mdash; the single-runtime measurement is the weaker one.</p>
+  </div>
+
   <h2>Ranked recommendations</h2>
   <p>The same out-of-fold model scores and rule scores above sort every page into one of four
   tiers: rule and model in agreement rank highest; rows where the rule is silent but the model
