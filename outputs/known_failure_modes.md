@@ -90,6 +90,9 @@ Precision@50 moved `0.680` to `0.740`.
 
 ## 7. On the valid population, no model discriminates well
 
+Measured on `scripts/run_all.py`, `26,612` rows, single runtime, unnamed
+feature set.
+
 After excluding zero-impression rows (entry 1), the best ROC AUC across three
 models is `0.583` (logistic regression). Decision tree returns `0.505`,
 indistinguishable from random. Random forest reaches `0.566` with recall of
@@ -102,5 +105,7 @@ than serving as a floor to beat.
 starter CSV may not carry enough signal for the task once the arithmetic
 artifact is removed. The next step is a feature question, not a model question.
 
-**Don't trust** any framing of this work as a working ranker. It is a
-correctly-evaluated negative result.
+**Don't trust** any framing of this measurement as a working ranker. On this
+population, under this single runtime, it is a correctly-evaluated negative
+result. The capstone's cross-validated run on `26,604` rows is a separate
+measurement and reports higher figures; neither cancels the other.
