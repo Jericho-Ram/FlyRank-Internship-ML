@@ -20,10 +20,11 @@ A scoring model for refresh and content opportunity, built for reviewers who can
 |---|---|
 | [Model report](outputs/model_report.md) | Recorded metrics and the retraction of a figure produced under leakage. |
 | [Evaluation and export script](scripts/04_evaluate_and_export.py) | The retraction is embedded in the generating script, not only in the report it writes. |
+| [Known failure modes](outputs/known_failure_modes.md) | Seven conditions under which the score should not be trusted, each scoped to the measurement it describes. Hand-maintained, so a script re-run cannot silently un-retract it. |
 | [Notebooks](notebooks/) | Step-by-step run from raw slice to scored output. Reads `data/raw/content_refresh_anonymized.csv`, committed here. |
 | [Scripts](scripts/) | The same pipeline as command-line steps, with the input path passed as an argument. Same committed slice. |
 
-**Finding worth reading before the numbers:** model selection flips with population. Unfiltered data favours random forest (`0.750`); excluding zero-impression rows favours logistic regression (`0.583`). The score is only trustworthy on the population it was selected against.
+**Finding worth reading before the numbers:** model selection flips with population. Under the reference pipeline, unfiltered data favours random forest (`0.750`); excluding zero-impression rows favours logistic regression (`0.583`). The score is only trustworthy on the population it was selected against. The capstone's cross-validated run is a separate measurement — see [`work/README.md`](work/README.md).
 
 ## Practice and process
 
@@ -38,7 +39,8 @@ A scoring model for refresh and content opportunity, built for reviewers who can
 
 | Deliverable | What it proves |
 |---|---|
-| [README](README.md) | Setup a stranger can follow, usage examples, architecture sketch, v2 eval results, limitations. |
+| [Project README](work/README.md) | What it does and for whom, setup, usage, architecture, results, limitations. |
+| [Capstone notebook](work/notebooks/capstone.ipynb) | The run that produced the published figures: `26,604` rows, five client-grouped folds. |
 | TODO — demo video | Live end-to-end run with narration, including one limitation stated out loud. |
 
 ## Final package (FL-10)
