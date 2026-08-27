@@ -45,6 +45,10 @@ The results below come from `work/notebooks/capstone.ipynb`, not from the refere
 
 ## Architecture
 
+### The reference pipeline (`scripts/`)
+
+Shipped with the starter repo, run unmodified. It is the comparison point, not the source of the results below.
+
 ```text
 data/raw/content_refresh_anonymized.csv       30,000 rows x 44 columns
       |
@@ -70,9 +74,32 @@ outputs/refresh_queue.csv, outputs/model_report.md, outputs/charts/
 outputs/flyrank_refresh_model_results.pdf
 ```
 
-**The label** is `is_declining_label = (trend_direction == "down")`. Because the label derives from `trend_direction`, neither `trend_direction` nor `trend_pct` can ever be a feature.
+### The capstone path (`work/notebooks/capstone.ipynb`)
 
-**The split** holds out whole clients. No client's pages appear in both train and test, so the score is measured on clients the model has never seen.
+This is what produced the results below.
+
+```text
+data/raw/content_refresh_anonymized.csv       30,000 rows x 44 columns
+      |
+      |  filter: avg_position > 0                 drops 1,205 unranked rows
+      |  filter: impressions_prev_30d > 0         drops 2,191 ranked rows
+      v
+scored population                             26,604 rows, 31 of 32 clients
+      |
+      |  two feature sets built once:
+      |    permissive  38 cols
+      |    strict      34 cols, minus the four window-overlap columns
+      v
+      |  5-fold GroupKFold on client_id
+      |  random forest, logistic regression, and the Week-4 hand rule
+      |  on identical folds
+      v
+work/outputs/capstone_action_queue.csv, work/outputs/charts/
+```
+
+**The label** is `is_declining = (trend_direction == "down")`, itself defined from a 30-day-versus-prior-30-day impression change. Because the label derives from `trend_direction`, neither `trend_direction` nor `trend_pct` can ever be a feature. Adding `trend_pct` back sends AUC to `1.000`, which is how the harness proves it can detect a leak.
+
+**The split** groups by `client_id`. No client appears on both sides of a fold, so the score is measured on clients the model has never seen. One client is 26.2% of the population, and fold 0 is that single client — read its per-fold number as one client's result, not an average.
 
 ## Results
 
@@ -108,7 +135,7 @@ The short version:
 4. The committed report did not reproduce from a clean clone.
 5. The label is defined from impressions in the bundled slice and from clicks in the warehouse.
 6. Precision@50 is the most fragile metric in the table; never quote it alone.
-7. On the valid population, no model discriminates well. No fix applied — this is a finding, not a defect.
+7. Under the reference pipeline's single-runtime measurement, no model discriminates well and the hand rule scores below random. That entry describes `scripts/run_all.py` on `26,612` rows, not the cross-validated table above.
 
 ## Where AI did the work
 
