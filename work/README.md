@@ -121,11 +121,17 @@ Strict ranks slightly better at the top of the queue (`0.868` at 50) while scori
 
 **What the split honesty cost.** The same model reads `0.767` under a random split and `0.645` under a client-grouped one. That `0.122` is not skill — it is the model recognising which client a row belongs to, which is worth nothing on a client it has never seen.
 
-**These are not the reference pipeline's numbers.** `scripts/run_all.py` scores `26,612` rows under a single runtime with unnamed features and reports `0.583` / `0.740`. The counts differ by 8 because the filters overlap. The model did not get better between the two — the single-runtime measurement is the weaker one. Both are reconciled side by side at https://jericho-ram.github.io/cases.html. Every number above comes from `work/notebooks/capstone.ipynb`.
+**These are not the reference pipeline's numbers.** `scripts/run_all.py` scores `26,612` rows under a single client
+holdout split and selects logistic regression at `0.583` / `0.740`. The counts differ by 8 because the filters overlap.
+The cross-validated figures above are the more reliable measurement, being a mean across five folds rather than one split.
+Both are reconciled side by side at https://jericho-ram.github.io/cases.html. Every number above comes from
+`work/notebooks/capstone.ipynb`.
 
 ## Limitations
 
-Seven named failure modes, each with the condition under which the score should not be trusted, are in [`outputs/known_failure_modes.md`](../outputs/known_failure_modes.md). The list is hand-maintained rather than generated, so it does not silently un-retract when a script re-runs.
+Seven named failure modes, each with the condition under which the score should not be trusted, are in
+[`outputs/known_failure_modes.md`](../outputs/known_failure_modes.md). The list is hand-maintained rather than generated,
+so it does not silently un-retract when a script re-runs.
 
 The short version:
 
