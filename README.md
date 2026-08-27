@@ -103,11 +103,13 @@ That runs the whole pipeline on the bundled sample and writes results to `output
 05_build_pdf_report.py   a shareable PDF summary
 ```
 
-On the held-out split the model reaches ROC AUC `0.583` with Precision@50 `0.740`. Quote them together; neither carries
-the other. Scoring covers `26,612` of `30,000` rows — the rest are excluded because `impressions_prev_30d == 0` makes 
-decline arithmetically impossible — so both figures describe that subset. On that population this is a negative result: 
-`0.583` is weak discrimination, and the hand rule it is measured against scores `0.380`, below random, so beating it 
-establishes nothing. Read `outputs/known_failure_modes.md` before reusing either number.
+On the held-out split the random forest reaches ROC AUC `0.565` with Precision@50 `0.600`, against a base rate of
+`0.611`. Quote them together; neither carries the other. The best ROC AUC across the three models is `0.583`, from
+logistic regression. Scoring covers `26,612` of `30,000` rows — the rest are excluded because
+`impressions_prev_30d == 0` makes decline arithmetically impossible — so every figure describes that subset. On that
+population this is a negative result: `0.600` against a base rate of `0.611` is no lift over random selection, and the
+hand rule scores `0.380` ROC AUC, below random, so beating it establishes nothing. Read
+`outputs/known_failure_modes.md` before reusing any of these numbers.
 
 **Teaching point:** the model is the capstone, but the *workflow* is the lesson —
 `problem framing → data cleaning → baseline → first model → evaluation → explainable recommendation`.
