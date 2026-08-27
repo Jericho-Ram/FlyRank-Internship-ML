@@ -25,8 +25,8 @@ decline from pages that could — a filter, not a prediction.
 **Fix.** Score only pages where decline is arithmetically possible. Pages with
 no prior impressions go to a different question: is this page visible at all.
 
-**Don't trust the score** on any unfiltered population, which includes every
-number previously published from this repo.
+**Don't trust the score** on any unfiltered population. The numbers previously
+published from this repo were measured that way; the current ones are not.
 
 ## 2. The 90-day query window opens inside the label month
 
